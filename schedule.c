@@ -83,8 +83,12 @@ void sched_print(void* obj)
 //generating a structure of scheduling information
 void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 {
-	schedInfo_t* schedPtr;
-	
+	schedInfo_t *schedPtr = (schedInfo_t*)malloc(sizeof(schedInfo_t));
+    strcpy(schedPtr->name, name);
+    strcpy(schedPtr->place, place);
+    schedPtr->month = month;
+    schedPtr->day =day;
+    schedPtr->type = (scheduleType_e)type;
 	//error handler
 
 	//allocate memory and set the member variables
